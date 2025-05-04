@@ -1,15 +1,28 @@
-import Button from 'react-bootstrap/Button';
+
 import Card from 'react-bootstrap/Card';
 import Umwe from '../assets/Umwegraphy.jpg'
+import Likebutton from '../components/Likebutton';
 
-const Cards = ({umuntu}) => {
+interface UmuntuCard {
+  name: string;
+  age: string;
+  location: string;
+  ocupation: string;
+}
+
+interface CardsProps {
+  umuntu: UmuntuCard[];
+}
+
+
+const Cards = ({umuntu}: CardsProps) => {
   return (
-    <div>
-      <ul>
+    <div className='d-flex flex-wrap gap-3'>
+      
           {umuntu.map((uyu,i)=>{
             return (
-            <li>
-                <Card style={{ width: '18rem' }}>
+            
+                <Card key={i} style={{ width: '18rem' }}>
           <Card.Img variant="top" src={Umwe} style={{height:'200px'}} />
           <Card.Body>
             <Card.Title>Names: {uyu.name} </Card.Title>
@@ -22,12 +35,13 @@ const Cards = ({umuntu}) => {
             <Card.Text>
               ocupation: {uyu.ocupation}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            {/* <Button variant="primary">Go somewhere</Button> */}
+            <Likebutton onClick={()=>console.log('cliked')}/>
           </Card.Body>
         </Card>
-            </li>)
+            )
           })}
-      </ul>
+     
         
     </div>
   )
