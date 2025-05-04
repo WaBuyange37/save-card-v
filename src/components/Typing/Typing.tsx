@@ -18,8 +18,6 @@ interface Props{
 }
 
 const Typing = ({card, setPeople}:Props) => {
-  const [ikarita,setIkarita]= useState<{name:string;age:string;location:string;ocupation:string}[]>([]);
-
   //for onchangeInput
   const [injiza,setInjiza]= useState<{name:string;age:string;location:string;ocupation:string}>({
     name: '',
@@ -48,7 +46,7 @@ const Typing = ({card, setPeople}:Props) => {
         </MySpan>
         <button className='btn btn-success' onClick={(e)=>{
           e.preventDefault();
-          setIkarita(prev =>[...prev, injiza])
+          setPeople(prev =>[...prev, injiza])
           
         }}>See the card</button>
       </form>
