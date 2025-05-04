@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 import Header from './components/headre/Header'
 import Typing from './components/Typing/Typing'
+import Cards from './pages/Cards'
 
 function App() {
   const [people, setPeople] = useState([
@@ -15,11 +16,7 @@ function App() {
       <Header></Header>
       <Typing card={people} setPeople={setPeople}/>
 
-      <div>
-        {people.map((kana,i)=>{
-          return <li key={i}>{kana.name}</li>
-        })}
-      </div>
+      <Cards umuntu={people}/>
     </>
   )
 }
